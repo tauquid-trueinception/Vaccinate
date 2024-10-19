@@ -1,43 +1,33 @@
-import { Avatar, Chip } from '@mui/material'
+import Chip from '@mui/material/Chip'
 import React, { ReactElement } from 'react'
 
 interface props {
-    borderRadius? : "16px" | "4px",
-    avatarLetter? : string,
-    avatarSrc? : string,
+    shape? : "pill" | "rounded",
     onDelete? : () => void,
-    icon? : ReactElement,
+    deleteIcon? : ReactElement,
     color? : "default" | "primary" |"secondary" | "error" | "info" | "success" | "warning",
-    size? :"medium" | "small",
+    size?: "medium" | "small",
     variant? : "filled" | "outlined",
     label : string,
-    disabled? : boolean 
+    disabled? : boolean,
+    startIcon? :ReactElement
 }
 
 export const CustomChip = ({
-    borderRadius = "16px",
-    avatarLetter,
-    avatarSrc,
+    shape = "pill",
     onDelete,
-    icon,
-    color = "default",
+    deleteIcon,
+    color = "success",
     size = "medium",
-    variant = "filled",
+    variant = "outlined",
     label,
-    disabled = false
+    disabled = false,
+    startIcon
 } : props) => {
 
-    // for the avatar image or avatar letter
-    const onAvatar = () => {
-        if(avatarLetter?.length){
-            return(<Avatar>{avatarLetter}</Avatar>)
-        }
-
-        if(avatarSrc?.length){
-            return(<Avatar src={avatarSrc} />)
-        }
-
-        return undefined
+    const shapes = {
+        pill : "16px",
+        rounded : "4px"
     }
 
     return (
@@ -46,10 +36,10 @@ export const CustomChip = ({
             variant={variant}
             color={color}
             size={size}
-            sx={{borderRadius}}
-            avatar={onAvatar()}
+            sx={{borderRadius : shapes[shape]  , marginRight : ".7rem"}}
             onDelete={onDelete}
-            deleteIcon={icon}
+            deleteIcon={deleteIcon}
+            icon={startIcon}
             disabled = {disabled}
         />
     )
