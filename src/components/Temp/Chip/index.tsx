@@ -5,7 +5,7 @@ interface props {
     shape? : "pill" | "rounded",
     onDelete? : () => void,
     color? : "default" | "primary" |"secondary" | "error" | "info" | "success" | "warning",
-    size?: "medium" | "small",
+    size?: "medium" | "small" | "large",
     variant? : "filled" | "outlined",
     label : string,
     disabled? : boolean,

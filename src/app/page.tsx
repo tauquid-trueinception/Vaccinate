@@ -1,10 +1,9 @@
 "use client";
 import React from 'react';
-import { Box,  IconButton, Typography } from '@mui/material';
+import { Box, Typography } from '@mui/material';
 import { CustomChip } from '@/components/Temp/Chip';
-import CustomBadge from '@/components/Temp/VaccinateBadge';
 import { Mail } from '@mui/icons-material';
-import { Stack } from '@mui/system';
+import CustomBadge from '@/components/Temp/Badge';
 
 
 
@@ -14,17 +13,29 @@ import { Stack } from '@mui/system';
 
 const App: React.FC = () => {
   return (
-    <Box display="flex" justifyContent="center" alignItems="center" minHeight="100vh" bgcolor={'#f5f5f5'}>
+    <Box display="flex" justifyContent="center" alignItems="center" minHeight="100vh" bgcolor={'black'}>
        <Typography variant='d1' borderColor={'#FF5733'} borderRadius={5}>Badge</Typography>
-<Stack>
-   <CustomBadge size='small' color='success' badgeContent={2} customvariant={'outlined'} >
-    <IconButton><Mail/></IconButton>
-   </CustomBadge>
-   <CustomBadge size='large' color='primary' badgeContent={4} customvariant={'filled'} >
-    <IconButton><Mail/></IconButton>
-   </CustomBadge>
-     </Stack>
+
+     <CustomChip size='small' color='info' label='Chip' variant='filled' startIcon={<Mail/>} />
+     <CustomChip size='medium' color='warning' label='Chip' variant='filled' startIcon={<Mail/>} />
+     <CustomChip size='large' color='success' label='Chip' variant='filled' startIcon={<Mail/>} />
+     <CustomChip size='medium' color='error' label='Chip' variant='filled' startIcon={<Mail/>} />
+     <CustomChip size='medium' color='info' label='Chip' variant='outlined' startIcon={<Mail/>} />
+     <CustomChip size='medium' color='warning' label='Chip' variant='outlined' startIcon={<Mail/>} />
      <CustomChip size='medium' color='success' label='Chip' variant='outlined' startIcon={<Mail/>} />
+     <CustomChip size='large' color='error' label='Chip' variant='outlined' startIcon={<Mail/>} />
+     <CustomBadge badgeContent={5} max={10} color="primary">
+        <span>Primary</span>
+      </CustomBadge>
+
+      <CustomBadge badgeContent={8} color="info" variant="outline">
+        <span>Error</span>
+      </CustomBadge>
+     
+      <CustomBadge badgeContent={10} color="success" variant="filled">
+        <span>Success</span>
+      </CustomBadge>
+   
     </Box>
   );
 };

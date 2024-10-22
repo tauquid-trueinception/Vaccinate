@@ -1,38 +1,35 @@
-import React, { ReactNode } from 'react'
-import { Badge } from '@mui/material'
+import React from 'react';
+import Badge from '@mui/material/Badge';
+import { BadgeProps } from '@mui/material';
 
-interface props {
-  notifications : number,
-  color? : "default" | "error" | "info" | "primary" | "secondary" | "success" | "warning",
-  variant? : "standard" | "dot"
-  positionY? : "top" | "bottom", // for the vertical direction 
-  positionX? : "left" | "right", // for the horizontal direction
-  maxNotifications? : number,
-  children : ReactNode
+interface CustomBadgeProps extends BadgeProps {
+  variant?: 'filled' | 'outline';
+  color?:
+    | 'primary'
+    | 'secondary'
+    | 'error'
+    | 'warning'
+    | 'success'
+    | 'info';
 }
 
-export const CustomBadge = ({
-  notifications,
-  maxNotifications = 100,
-  color = "primary",
-  variant = "standard",
-  positionX = "right",
-  positionY = "top",
-  children
-} : props) => {
-
+const CustomBadge: React.FC<CustomBadgeProps> = ({
+  children,
+  variant = 'filled',
+  color = 'primary',
+  badgeContent,
+  ...props
+}) => {
   return (
-    <Badge 
-      badgeContent={notifications} 
-      color={color} 
-      variant={variant}
-      anchorOrigin={{
-        vertical : positionY,
-        horizontal : positionX
-      }}
-      max={maxNotifications}
+    <Badge
+      badgeContent={badgeContent}
+      color={color}
+      variant={variant === 'outline' ? 'standard' : 'dot'} // Simplified variant handling
+      {...props}
     >
       {children}
     </Badge>
-  )
-}
+  );
+};
+
+export default CustomBadge;
