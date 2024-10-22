@@ -802,6 +802,21 @@ declare module '@mui/material/styles' {
         secondary? : React.CSSProperties,
         error? : React.CSSProperties,
     }
+
+    interface ChipPropsSizeOptions {
+        large? :React.CSSProperties, 
+        medium? :React.CSSProperties, 
+        small? :React.CSSProperties, 
+    }
+
+    interface ChipPropsColorOptions {
+        primary? : React.CSSProperties,
+        success? : React.CSSProperties,
+        warning? : React.CSSProperties,
+        info? : React.CSSProperties,
+        secondary? : React.CSSProperties,
+        error? : React.CSSProperties,
+    }
 }
 
 declare module '@mui/material/Typography' {
@@ -837,12 +852,31 @@ declare module '@mui/material/Select' {
     interface SelectPropsColorOverrides {
         primary : true,
         success : true,
-        warming : true,
+        warning : true,
         info : true,
         secondary : true,
         error : true,
     }
 }
+
+declare module '@mui/material/Chip' {
+    interface ChipPropsSizeOverrides {
+        large : true,
+        medium : true,
+        small : true
+    }
+
+    interface ChipPropsColorOverrides {
+        primary : true,
+        secondary : true,
+        info : true,
+        warning : true,
+        success : true,
+        error : true,
+    }
+    
+}
+
 
 
 
@@ -1463,7 +1497,7 @@ const Theme = ({ mode = "light" }: { mode: "light" | "dark" }) => {
                 defaultProps: {
                     variant: "filled",
                     color: 'secondary',
-                    size: 'medium'
+                    size: "large"
                 },
                 styleOverrides: {
                     root: {
@@ -1474,6 +1508,11 @@ const Theme = ({ mode = "light" }: { mode: "light" | "dark" }) => {
                         textTransform: 'none',
                         fontWeight: 400,
                         boxShadow: 'none',
+                        display : "flex",
+                        alignItems : "center",
+                        padding : "4px 5px",
+                        justifyContent : "space-between",
+                        gap : "3px",
                         '&:hover': {
                             backgroundColor: customTheme.mappedColors.action.primary.hover(mode),
                             color: customTheme.mappedColors.action.primary.textHover(mode),
@@ -1488,20 +1527,45 @@ const Theme = ({ mode = "light" }: { mode: "light" | "dark" }) => {
                             backgroundColor: customTheme.mappedColors.action.primary.disabled(mode),
                             color: customTheme.mappedColors.action.primary.textDisabled(mode),
                             borderColor: customTheme.mappedColors.border.disabled(mode)
+                        },
+
+                        '& .MuiChip-icon' : {
+                            width: "18px",
+                            height: "20px",
+                            color: customTheme.mappedColors.action.primary.textMain(mode),
+                        },
+
+                        "& .MuiChip-deleteIcon" : {
+                            width: "18px",
+                            height: "20px",
+                            color: customTheme.mappedColors.action.primary.textMain(mode),
+                            "&:hover" : {
+                                color: customTheme.mappedColors.action.primary.textHover(mode),
+                            }
                         }
                     },
 
                     // for the size variant
+
+                    
+                    
                     sizeSmall: {
-                        fontSize: '0.75rem',
+                        fontSize: '12px',
                         lineHeight: '1rem',
-                        padding: '8px 12px'
+                        padding: '2px 6px',
                     },
                     sizeMedium: {
-                        fontSize: '0.875rem',
+                        fontSize: '14px',
                         lineHeight: '1.25rem',
-                        padding: '10px 16px'
+                        padding: '2px 6px',
                     },
+
+                    sizeLarge : {
+                        fontSize : "16px",
+                        lineHeight : "24px",
+                        padding: "4px 8px",
+                    },
+
 
                     // // for the filled variant
                     filled: {
@@ -1523,6 +1587,21 @@ const Theme = ({ mode = "light" }: { mode: "light" | "dark" }) => {
                             backgroundColor:
                                 customTheme.mappedColors.action.primary.disabled(mode),
                             color: customTheme.mappedColors.action.primary.textDisabled(mode)
+                        },
+
+                        '& .MuiChip-icon' : {
+                            width: "18px",
+                            height: "20px",
+                            color: customTheme.mappedColors.action.primary.textMain(mode),
+                        },
+
+                        "& .MuiChip-deleteIcon" : {
+                            width: "18px",
+                            height: "20px",
+                            color: customTheme.mappedColors.action.primary.textMain(mode),
+                            "&:hover" : {
+                                color: customTheme.mappedColors.action.primary.textHover(mode),
+                            }
                         }
                     },
                     filledPrimary: {
@@ -1544,12 +1623,26 @@ const Theme = ({ mode = "light" }: { mode: "light" | "dark" }) => {
                             backgroundColor:
                                 customTheme.mappedColors.action.primary.disabled(mode),
                             color: customTheme.mappedColors.action.primary.textDisabled(mode)
+                        },
+
+                        '& .MuiChip-icon' : {
+                            width: "18px",
+                            height: "20px",
+                            color: customTheme.mappedColors.action.primary.textMain(mode),
+                        },
+
+                        "& .MuiChip-deleteIcon" : {
+                            width: "18px",
+                            height: "20px",
+                            color: customTheme.mappedColors.action.primary.textMain(mode),
+                            "&:hover" : {
+                                color: customTheme.mappedColors.action.primary.textHover(mode),
+                            }
                         }
                     },
                     filledSecondary: {
                         backgroundColor: customTheme.mappedColors.action.secondary.main(mode),
                         color: customTheme.mappedColors.action.secondary.textMain(mode),
-
                         '&:hover': {
                             backgroundColor:
                                 customTheme.mappedColors.action.secondary.hover(mode),
@@ -1564,6 +1657,165 @@ const Theme = ({ mode = "light" }: { mode: "light" | "dark" }) => {
                             backgroundColor:
                                 customTheme.mappedColors.action.secondary.disabled(mode),
                             color: customTheme.mappedColors.action.secondary.textDisabled(mode)
+                        },
+
+                        '& .MuiChip-icon' : {
+                            width: "18px",
+                            height: "20px",
+                            color: customTheme.mappedColors.action.secondary.textMain(mode),
+                        },
+
+                        "& .MuiChip-deleteIcon" : {
+                            width: "18px",
+                            height: "20px",
+                            color: customTheme.mappedColors.action.secondary.textMain(mode),
+                            "&:hover" : {
+                                color: customTheme.mappedColors.action.secondary.textHover(mode),
+                            }
+                        }
+                    },
+                    filledInfo : {
+                        backgroundColor: customTheme.mappedColors.action.info.main(mode),
+                        color: customTheme.mappedColors.action.info.textMain(mode),
+                        borderColor: customTheme.mappedColors.border.info(mode),
+
+                        '&:hover': {
+                            backgroundColor:
+                                customTheme.mappedColors.action.info.hover(mode),
+                            color: customTheme.mappedColors.action.info.textHover(mode)
+                        },
+                        '&:active': {
+                            backgroundColor:
+                                customTheme.mappedColors.action.info.pressed(mode),
+                            color: customTheme.mappedColors.action.info.textPressed(mode)
+                        },
+                        '&:disabled': {
+                            backgroundColor:
+                                customTheme.mappedColors.action.info.disabled(mode),
+                            color: customTheme.mappedColors.action.info.textDisabled(mode)
+                        },
+
+                        '& .MuiChip-icon' : {
+                            width: "18px",
+                            height: "20px",
+                            color: customTheme.mappedColors.action.info.textMain(mode),
+                        },
+
+                        "& .MuiChip-deleteIcon" : {
+                            width: "18px",
+                            height: "20px",
+                            color: customTheme.mappedColors.action.info.textMain(mode),
+                            "&:hover" : {
+                                color: customTheme.mappedColors.action.info.textHover(mode),
+                            }
+                        }
+                    },
+                    filledSuccess : {
+                        backgroundColor: customTheme.mappedColors.action.success.main(mode),
+                        color: customTheme.mappedColors.action.success.textMain(mode),
+                        borderColor: customTheme.mappedColors.border.success(mode),
+
+                        '&:hover': {
+                            backgroundColor:
+                                customTheme.mappedColors.action.success.hover(mode),
+                            color: customTheme.mappedColors.action.success.textHover(mode)
+                        },
+                        '&:active': {
+                            backgroundColor:
+                                customTheme.mappedColors.action.success.pressed(mode),
+                            color: customTheme.mappedColors.action.success.textPressed(mode)
+                        },
+                        '&:disabled': {
+                            backgroundColor:
+                                customTheme.mappedColors.action.success.disabled(mode),
+                            color: customTheme.mappedColors.action.success.textDisabled(mode)
+                        },
+
+                        '& .MuiChip-icon' : {
+                            width: "18px",
+                            height: "20px",
+                            color: customTheme.mappedColors.action.success.textMain(mode),
+                        },
+
+                        "& .MuiChip-deleteIcon" : {
+                            width: "18px",
+                            height: "20px",
+                            color: customTheme.mappedColors.action.success.textMain(mode),
+                            "&:hover" : {
+                                color: customTheme.mappedColors.action.success.textHover(mode),
+                            }
+                        }
+                    },
+                    filledError : {
+                        backgroundColor: customTheme.mappedColors.action.error.main(mode),
+                        color: customTheme.mappedColors.action.error.textMain(mode),
+                        borderColor: customTheme.mappedColors.border.error(mode),
+
+                        '&:hover': {
+                            backgroundColor:
+                                customTheme.mappedColors.action.error.hover(mode),
+                            color: customTheme.mappedColors.action.error.textHover(mode)
+                        },
+                        '&:active': {
+                            backgroundColor:
+                                customTheme.mappedColors.action.error.pressed(mode),
+                            color: customTheme.mappedColors.action.error.textPressed(mode)
+                        },
+                        '&:disabled': {
+                            backgroundColor:
+                                customTheme.mappedColors.action.error.disabled(mode),
+                            color: customTheme.mappedColors.action.error.textDisabled(mode)
+                        },
+
+                        '& .MuiChip-icon' : {
+                            width: "18px",
+                            height: "20px",
+                            color: customTheme.mappedColors.action.error.textMain(mode),
+                        },
+
+                        "& .MuiChip-deleteIcon" : {
+                            width: "18px",
+                            height: "20px",
+                            color: customTheme.mappedColors.action.error.textMain(mode),
+                            "&:hover" : {
+                                color: customTheme.mappedColors.action.error.textHover(mode),
+                            }
+                        }
+                    },
+                    filledWarning : {
+                        backgroundColor: customTheme.mappedColors.action.warning.main(mode),
+                        color: customTheme.mappedColors.action.warning.textMain(mode),
+                        borderColor: customTheme.mappedColors.border.warning(mode),
+
+                        '&:hover': {
+                            backgroundColor:
+                                customTheme.mappedColors.action.warning.hover(mode),
+                            color: customTheme.mappedColors.action.warning.textHover(mode)
+                        },
+                        '&:active': {
+                            backgroundColor:
+                                customTheme.mappedColors.action.warning.pressed(mode),
+                            color: customTheme.mappedColors.action.warning.textPressed(mode)
+                        },
+                        '&:disabled': {
+                            backgroundColor:
+                                customTheme.mappedColors.action.warning.disabled(mode),
+                            color: customTheme.mappedColors.action.warning.textDisabled(mode)
+                        },
+
+                        '& .MuiChip-icon' : {
+                            width: "18px",
+                            height: "20px",
+                            color: customTheme.mappedColors.action.warning.textMain(mode),
+                        },
+
+                        "& .MuiChip-deleteIcon" : {
+                            width: "18px",
+                            height: "20px",
+                            color: customTheme.mappedColors.action.warning.textMain(mode),
+                            "&:hover" : {
+                                color: customTheme.mappedColors.action.warning.textHover(mode),
+                            }
                         }
                     },
 
@@ -1588,6 +1840,21 @@ const Theme = ({ mode = "light" }: { mode: "light" | "dark" }) => {
                             borderColor:
                                 customTheme.mappedColors.action.primary.disabled(mode),
                             color: customTheme.mappedColors.action.primary.disabled(mode)
+                        },
+
+                        '& .MuiChip-icon' : {
+                            width: "18px",
+                            height: "20px",
+                            color: customTheme.mappedColors.action.primary.main(mode),
+                        },
+
+                        "& .MuiChip-deleteIcon" : {
+                            width: "18px",
+                            height: "20px",
+                            color: customTheme.mappedColors.action.primary.main(mode),
+                            "&:hover" : {
+                                color: customTheme.mappedColors.action.primary.hover(mode),
+                            }
                         }
                     },
                     outlinedPrimary: {
@@ -1610,6 +1877,169 @@ const Theme = ({ mode = "light" }: { mode: "light" | "dark" }) => {
                             borderColor:
                                 customTheme.mappedColors.action.primary.disabled(mode),
                             color: customTheme.mappedColors.action.primary.disabled(mode)
+                        },
+
+                        '& .MuiChip-icon' : {
+                            width: "18px",
+                            height: "20px",
+                            color: customTheme.mappedColors.action.primary.main(mode),
+                        },
+
+                        "& .MuiChip-deleteIcon" : {
+                            width: "18px",
+                            height: "20px",
+                            color: customTheme.mappedColors.action.primary.main(mode),
+                            "&:hover" : {
+                                color: customTheme.mappedColors.action.primary.hover(mode),
+                            }
+                        }
+                    },
+                    outlinedSuccess : {
+                        backgroundColor: 'transparent',
+                        borderColor: customTheme.mappedColors.action.success.main(mode),
+                        color: customTheme.mappedColors.action.success.main(mode),
+                        '&:hover': {
+                            backgroundColor: 'transparent',
+                            borderColor: customTheme.mappedColors.action.success.hover(mode),
+                            color: customTheme.mappedColors.action.success.hover(mode)
+                        },
+                        '&:active': {
+                            backgroundColor: 'transparent',
+                            borderColor:
+                                customTheme.mappedColors.action.success.pressed(mode),
+                            color: customTheme.mappedColors.action.success.pressed(mode)
+                        },
+                        '&:disabled': {
+                            backgroundColor: 'transparent',
+                            borderColor:
+                                customTheme.mappedColors.action.success.disabled(mode),
+                            color: customTheme.mappedColors.action.success.disabled(mode)
+                        },
+
+                        '& .MuiChip-icon' : {
+                            width: "18px",
+                            height: "20px",
+                            color: customTheme.mappedColors.action.success.main(mode),
+                        },
+
+                        "& .MuiChip-deleteIcon" : {
+                            width: "18px",
+                            height: "20px",
+                            color: customTheme.mappedColors.action.success.main(mode),
+                            "&:hover" : {
+                                color: customTheme.mappedColors.action.success.hover(mode),
+                            }
+                        }
+                    },
+                    outlinedError : {
+                        backgroundColor: 'transparent',
+                        borderColor: customTheme.mappedColors.action.error.main(mode),
+                        color: customTheme.mappedColors.action.error.main(mode),
+                        '&:hover': {
+                            backgroundColor: 'transparent',
+                            borderColor: customTheme.mappedColors.action.error.hover(mode),
+                            color: customTheme.mappedColors.action.error.hover(mode)
+                        },
+                        '&:active': {
+                            backgroundColor: 'transparent',
+                            borderColor:
+                                customTheme.mappedColors.action.error.pressed(mode),
+                            color: customTheme.mappedColors.action.error.pressed(mode)
+                        },
+                        '&:disabled': {
+                            backgroundColor: 'transparent',
+                            borderColor:
+                                customTheme.mappedColors.action.error.disabled(mode),
+                            color: customTheme.mappedColors.action.error.disabled(mode)
+                        },
+
+                        '& .MuiChip-icon' : {
+                            width: "18px",
+                            height: "20px",
+                            color: customTheme.mappedColors.action.error.main(mode),
+                        },
+
+                        "& .MuiChip-deleteIcon" : {
+                            width: "18px",
+                            height: "20px",
+                            color: customTheme.mappedColors.action.error.main(mode),
+                            "&:hover" : {
+                                color: customTheme.mappedColors.action.error.hover(mode),
+                            }
+                        }
+                    },
+                    outlinedInfo : {
+                        backgroundColor: 'transparent',
+                        borderColor: customTheme.mappedColors.action.info.main(mode),
+                        color: customTheme.mappedColors.action.info.main(mode),
+                        '&:hover': {
+                            backgroundColor: 'transparent',
+                            borderColor: customTheme.mappedColors.action.info.hover(mode),
+                            color: customTheme.mappedColors.action.info.hover(mode)
+                        },
+                        '&:active': {
+                            backgroundColor: 'transparent',
+                            borderColor:
+                                customTheme.mappedColors.action.info.pressed(mode),
+                            color: customTheme.mappedColors.action.info.pressed(mode)
+                        },
+                        '&:disabled': {
+                            backgroundColor: 'transparent',
+                            borderColor:
+                                customTheme.mappedColors.action.info.disabled(mode),
+                            color: customTheme.mappedColors.action.info.disabled(mode)
+                        },
+
+                        '& .MuiChip-icon' : {
+                            width: "18px",
+                            height: "20px",
+                            color: customTheme.mappedColors.action.info.main(mode),
+                        },
+
+                        "& .MuiChip-deleteIcon" : {
+                            width: "18px",
+                            height: "20px",
+                            color: customTheme.mappedColors.action.info.main(mode),
+                            "&:hover" : {
+                                color: customTheme.mappedColors.action.info.hover(mode),
+                            }
+                        }
+                    },
+                    outlinedWarning : {
+                        backgroundColor: 'transparent',
+                        borderColor: customTheme.mappedColors.action.warning.main(mode),
+                        color: customTheme.mappedColors.action.warning.main(mode),
+                        '&:hover': {
+                            backgroundColor: 'transparent',
+                            borderColor: customTheme.mappedColors.action.warning.hover(mode),
+                            color: customTheme.mappedColors.action.warning.hover(mode)
+                        },
+                        '&:active': {
+                            backgroundColor: 'transparent',
+                            borderColor:
+                                customTheme.mappedColors.action.warning.pressed(mode),
+                            color: customTheme.mappedColors.action.warning.pressed(mode)
+                        },
+                        '&:disabled': {
+                            backgroundColor: 'transparent',
+                            borderColor:
+                                customTheme.mappedColors.action.warning.disabled(mode),
+                            color: customTheme.mappedColors.action.warning.disabled(mode)
+                        },
+
+                        '& .MuiChip-icon' : {
+                            width: "18px",
+                            height: "20px",
+                            color: customTheme.mappedColors.action.warning.main(mode),
+                        },
+
+                        "& .MuiChip-deleteIcon" : {
+                            width: "18px",
+                            height: "20px",
+                            color: customTheme.mappedColors.action.warning.main(mode),
+                            "&:hover" : {
+                                color: customTheme.mappedColors.action.warning.hover(mode),
+                            }
                         }
                     },
                     outlinedSecondary: {
@@ -1633,6 +2063,21 @@ const Theme = ({ mode = "light" }: { mode: "light" | "dark" }) => {
                             borderColor:
                                 customTheme.mappedColors.action.secondary.disabled(mode),
                             color: customTheme.mappedColors.action.secondary.disabled(mode)
+                        },
+
+                        '& .MuiChip-icon' : {
+                            width: "18px",
+                            height: "20px",
+                            color: customTheme.mappedColors.action.secondary.main(mode),
+                        },
+
+                        "& .MuiChip-deleteIcon" : {
+                            width: "18px",
+                            height: "20px",
+                            color: customTheme.mappedColors.action.secondary.main(mode),
+                            "&:hover" : {
+                                color: customTheme.mappedColors.action.secondary.hover(mode),
+                            }
                         }
                     }
                 }
@@ -1647,13 +2092,18 @@ const Theme = ({ mode = "light" }: { mode: "light" | "dark" }) => {
                     }
                 },
                 styleOverrides : {
-
+                    root : {
+                        color: customTheme.mappedColors.action.primary.main(mode),
+                    },
+                    
+                    // for the badges standard variant
                     standard : {
+                        padding: "4px 8px",
                         fontSize : "12px",
-                        padding : "12px 7px",
                         borderRadius : "100rem"
                     },
 
+                    // for the badge color
                     colorPrimary : {
                         backgroundColor: customTheme.mappedColors.action.primary.main(mode),
                         color: customTheme.mappedColors.action.primary.textMain(mode),
