@@ -1,35 +1,39 @@
-import React from 'react';
-import Badge from '@mui/material/Badge';
-import { BadgeProps } from '@mui/material';
+import { Badge } from "@mui/material";
+import React from "react";
 
-interface CustomBadgeProps extends BadgeProps {
-  variant?: 'filled' | 'outline';
-  color?:
-    | 'primary'
-    | 'secondary'
-    | 'error'
-    | 'warning'
-    | 'success'
-    | 'info';
+
+interface BadgePropsVariantOverrides{
+  variant ?:  'filled' | 'outline';
+  color?: 'primary' | 'secondary' | 'info' | 'error' | 'warning' | 'success';
+  size?: 'small' | 'medium' | 'large';
+  children?: React.ReactNode;
+  icon?: React.ReactNode;
+  badgeContent: number;
+  max?: number;
+  anchorOrigin?: {
+    vertical?: 'top' | 'bottom';
+    horizontal?: 'left' | 'right';
+  };
+  
 }
 
-const CustomBadge: React.FC<CustomBadgeProps> = ({
-  children,
+const CustomBadge : React.FC<BadgePropsVariantOverrides> = ({
   variant = 'filled',
   color = 'primary',
+  size = 'medium',
+  children,
   badgeContent,
-  ...props
+  max = 99,
+  anchorOrigin = {
+    vertical: 'top',
+    horizontal: 'right',
+  },
 }) => {
-  return (
-    <Badge
-      badgeContent={badgeContent}
-      color={color}
-      variant={variant === 'outline' ? 'standard' : 'dot'} // Simplified variant handling
-      {...props}
-    >
-      {children}
-    </Badge>
-  );
-};
+  return(
+<Badge variant={variant} color={color} badgeContent={badgeContent} max={max} anchorOrigin={anchorOrigin}>
+{children}
+</Badge>
+  )
+}
 
-export default CustomBadge;
+export default CustomBadge

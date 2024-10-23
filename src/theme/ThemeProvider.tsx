@@ -2135,262 +2135,262 @@ const Theme = ({ mode = "light" }: { mode: "light" | "dark" }) => {
       MuiBadge: {
         styleOverrides: {
           root: {
-            color: customTheme.textIconography[mode].active,
-             backgroundColor: customTheme.mappedColors.action.primary.main(mode),
-             fontSize: '16px',
-             lineHeight: '24px',
-             fontWeight: 400,
-             fontFamily: font.style.fontFamily,
+            // color: customTheme.textIconography[mode].active,
+            // backgroundColor: customTheme.mappedColors.action.primary.main(mode),
+            // fontSize: '16px',
+            // lineHeight: '24px',
+            // fontWeight: 400,
+            // fontFamily: font.style.fontFamily,
           },
           colorError: {
             backgroundColor: customTheme.mappedColors.action.error.main(mode),
-            "& .MuiBadge-badge": {
-              backgroundColor: customTheme.mappedColors.action.error.main(mode),
-            },
+            '& .MuiBadge-badge': {
+              backgroundColor: customTheme.mappedColors.action.error.main(mode)
+            }
           },
           colorWarning: {
-            backgroundColor: customTheme.mappedColors.action.warning.main(mode),
+            backgroundColor: customTheme.mappedColors.action.warning.main(mode)
           },
           colorSuccess: {
-            backgroundColor: customTheme.mappedColors.action.success.main(mode),
+            backgroundColor: customTheme.mappedColors.action.success.main(mode)
           },
           colorPrimary: {
-            backgroundColor: customTheme.mappedColors.action.primary.main(mode),
+            backgroundColor: customTheme.mappedColors.action.primary.main(mode)
           },
           colorSecondary: {
             backgroundColor:
               customTheme.mappedColors.action.secondary.main(mode),
-            "& .MuiBadge-badge": {
+            '& .MuiBadge-badge': {
               backgroundColor:
-                customTheme.mappedColors.action.secondary.main(mode),
-            },
-          },
+                customTheme.mappedColors.action.secondary.main(mode)
+            }
+          }
         },
         defaultProps: {
-          variant: "filled",
+          variant: 'filled'
         },
         variants: [
           {
-            props: { variant: "filled" },
+            props: { variant: 'filled' },
             style: {
-              "& .MuiBadge-badge": {
+              '& .MuiBadge-badge': {
                 color: customTheme.textIconography.dark.active,
-                fontSize: "16px",
-                lineHeight: "24px",
+                fontSize: '16px',
+                lineHeight: '24px',
                 fontWeight: 400,
                 fontFamily: font.style.fontFamily,
                 backgroundColor:
                   customTheme.mappedColors.action.primary.main(mode),
-                "&:hover": {
+                '&:hover': {
                   backgroundColor:
-                    customTheme.mappedColors.action.primary.hover(mode),
-                },
-              },
-            },
+                    customTheme.mappedColors.action.primary.hover(mode)
+                }
+              }
+            }
           },
           {
-            props: { variant: "filled", color: "error" },
+            props: { variant: 'filled', color: 'error' },
             style: {
-              "& .MuiBadge-badge": {
+              '& .MuiBadge-badge': {
                 color: customTheme.textIconography.dark.active,
-                fontSize: "16px",
-                lineHeight: "24px",
+                fontSize: '16px',
+                lineHeight: '24px',
                 fontWeight: 400,
                 fontFamily: font.style.fontFamily,
                 backgroundColor:
                   customTheme.mappedColors.action.error.main(mode),
-                "&:hover": {
+                '&:hover': {
                   backgroundColor:
-                    customTheme.mappedColors.action.error.hover(mode),
-                },
-              },
-            },
+                    customTheme.mappedColors.action.error.hover(mode)
+                }
+              }
+            }
           },
           {
-            props: { variant: "filled", color: "success" },
+            props: { variant: 'filled', color: 'success' },
             style: {
-              "& .MuiBadge-badge": {
+              '& .MuiBadge-badge': {
                 color: customTheme.textIconography.dark.active,
-                fontSize: "16px",
-                lineHeight: "24px",
+                fontSize: '16px',
+                lineHeight: '24px',
                 fontWeight: 400,
                 fontFamily: font.style.fontFamily,
                 backgroundColor:
                   customTheme.mappedColors.action.success.main(mode),
-                "&:hover": {
+                '&:hover': {
                   backgroundColor:
-                    customTheme.mappedColors.action.success.hover(mode),
-                },
-              },
-            },
+                    customTheme.mappedColors.action.success.hover(mode)
+                }
+              }
+            }
           },
           {
-            props: { variant: "filled", color: "secondary" },
+            props: { variant: 'filled', color: 'secondary' },
             style: {
-              "& .MuiBadge-badge": {
+              '& .MuiBadge-badge': {
                 color: customTheme.textIconography.dark.active,
-                fontSize: "16px",
-                lineHeight: "24px",
+                fontSize: '16px',
+                lineHeight: '24px',
                 fontWeight: 400,
                 fontFamily: font.style.fontFamily,
                 backgroundColor:
                   customTheme.mappedColors.action.secondary.main(mode),
-                "&:hover": {
+                '&:hover': {
                   backgroundColor:
-                    customTheme.mappedColors.action.secondary.hover(mode),
-                },
-              },
-            },
+                    customTheme.mappedColors.action.secondary.hover(mode)
+                }
+              }
+            }
           },
           {
-            props: { variant: "filled", color: "warning" },
+            props: { variant: 'filled', color: 'warning' },
             style: {
-              "& .MuiBadge-badge": {
+              '& .MuiBadge-badge': {
                 color: customTheme.textIconography.dark.active,
-                fontSize: "16px",
-                lineHeight: "24px",
+                fontSize: '16px',
+                lineHeight: '24px',
                 fontWeight: 400,
                 fontFamily: font.style.fontFamily,
                 backgroundColor:
                   customTheme.mappedColors.action.warning.main(mode),
-                "&:hover": {
+                '&:hover': {
                   backgroundColor:
-                    customTheme.mappedColors.action.warning.hover(mode),
-                },
-              },
-            },
+                    customTheme.mappedColors.action.warning.hover(mode)
+                }
+              }
+            }
           },
           {
-            props: { variant: "filled", color: "info" },
+            props: { variant: 'filled', color: 'info' },
             style: {
-              "& .MuiBadge-badge": {
+              '& .MuiBadge-badge': {
                 color: customTheme.textIconography.dark.active,
-                fontSize: "16px",
-                lineHeight: "24px",
+                fontSize: '16px',
+                lineHeight: '24px',
                 fontWeight: 400,
                 fontFamily: font.style.fontFamily,
                 backgroundColor:
                   customTheme.mappedColors.action.info.main(mode),
-                "&:hover": {
+                '&:hover': {
                   backgroundColor:
-                    customTheme.mappedColors.action.info.hover(mode),
-                },
-              },
-            },
+                    customTheme.mappedColors.action.info.hover(mode)
+                }
+              }
+            }
           },
 
           {
-            props: { variant: "outline" },
+            props: { variant: 'outline' },
             style: {
-              "& .MuiBadge-badge": {
+              '& .MuiBadge-badge': {
                 color: customTheme.mappedColors.action.primary.main(mode),
                 backgroundColor: customTheme.mappedColors.surface.page(mode),
                 border: `1px solid ${customTheme.mappedColors.action.primary.main(
                   mode
                 )}`,
-                fontSize: "14px",
-                lineHeight: "20px",
+                fontSize: '14px',
+                lineHeight: '20px',
                 fontWeight: 600,
                 fontFamily: font.style.fontFamily,
-                "&:hover": {
+                '&:hover': {
                   backgroundColor:
                     customTheme.mappedColors.surface.primary(mode),
                   borderColor:
                     customTheme.mappedColors.action.primary.hover(mode),
-                  color: customTheme.mappedColors.action.primary.hover(mode),
-                },
-              },
-            },
+                  color: customTheme.mappedColors.action.primary.hover(mode)
+                }
+              }
+            }
           },
           {
-            props: { variant: "outline", color: "error" },
+            props: { variant: 'outline', color: 'error' },
             style: {
-              "& .MuiBadge-badge": {
+              '& .MuiBadge-badge': {
                 color: customTheme.mappedColors.action.error.main(mode),
                 borderColor: customTheme.mappedColors.action.error.main(mode),
                 backgroundColor: customTheme.mappedColors.surface.page(mode),
 
-                "&:hover": {
+                '&:hover': {
                   backgroundColor: customTheme.mappedColors.surface.error(mode),
                   borderColor:
                     customTheme.mappedColors.action.error.hover(mode),
-                  color: customTheme.mappedColors.action.error.hover(mode),
-                },
-              },
-            },
+                  color: customTheme.mappedColors.action.error.hover(mode)
+                }
+              }
+            }
           },
           {
-            props: { variant: "outline", color: "warning" },
+            props: { variant: 'outline', color: 'warning' },
             style: {
-              "& .MuiBadge-badge": {
+              '& .MuiBadge-badge': {
                 color: customTheme.mappedColors.action.warning.main(mode),
                 borderColor: customTheme.mappedColors.action.warning.main(mode),
                 backgroundColor: customTheme.mappedColors.surface.page(mode),
 
-                "&:hover": {
+                '&:hover': {
                   backgroundColor:
                     customTheme.mappedColors.surface.warning(mode),
                   borderColor:
                     customTheme.mappedColors.action.warning.hover(mode),
-                  color: customTheme.mappedColors.action.warning.hover(mode),
-                },
-              },
-            },
+                  color: customTheme.mappedColors.action.warning.hover(mode)
+                }
+              }
+            }
           },
           {
-            props: { variant: "outline", color: "success" },
+            props: { variant: 'outline', color: 'success' },
             style: {
-              "& .MuiBadge-badge": {
+              '& .MuiBadge-badge': {
                 borderColor: customTheme.mappedColors.action.success.main(mode),
                 color: customTheme.mappedColors.action.success.main(mode),
                 backgroundColor: customTheme.mappedColors.surface.page(mode),
 
-                "&:hover": {
+                '&:hover': {
                   backgroundColor:
                     customTheme.mappedColors.surface.success(mode),
                   borderColor:
                     customTheme.mappedColors.action.success.hover(mode),
-                  color: customTheme.mappedColors.action.success.hover(mode),
-                },
-              },
-            },
+                  color: customTheme.mappedColors.action.success.hover(mode)
+                }
+              }
+            }
           },
           {
-            props: { variant: "outline", color: "info" },
+            props: { variant: 'outline', color: 'info' },
             style: {
-              "& .MuiBadge-badge": {
+              '& .MuiBadge-badge': {
                 borderColor: customTheme.mappedColors.action.info.main(mode),
                 color: customTheme.mappedColors.action.info.main(mode),
                 backgroundColor: customTheme.mappedColors.surface.page(mode),
 
-                "&:hover": {
+                '&:hover': {
                   backgroundColor: customTheme.mappedColors.surface.info(mode),
                   borderColor: customTheme.mappedColors.action.info.hover(mode),
-                  color: customTheme.mappedColors.action.info.hover(mode),
-                },
-              },
-            },
+                  color: customTheme.mappedColors.action.info.hover(mode)
+                }
+              }
+            }
           },
           {
-            props: { variant: "outline", color: "secondary" },
+            props: { variant: 'outline', color: 'secondary' },
             style: {
-              "& .MuiBadge-badge": {
+              '& .MuiBadge-badge': {
                 borderColor:
                   customTheme.mappedColors.action.secondary.main(mode),
                 color: customTheme.mappedColors.action.secondary.main(mode),
                 backgroundColor: customTheme.mappedColors.surface.page(mode),
 
-                "&:hover": {
+                '&:hover': {
                   backgroundColor:
                     customTheme.mappedColors.surface.secondary(mode),
                   borderColor:
                     customTheme.mappedColors.action.secondary.hover(mode),
-                  color: customTheme.mappedColors.action.secondary.hover(mode),
-                },
-              },
-            },
-          },
-        ],
+                  color: customTheme.mappedColors.action.secondary.hover(mode)
+                }
+              }
+            }
+          }
+        ]
       },
       MuiOutlinedInput: {
         styleOverrides: {
