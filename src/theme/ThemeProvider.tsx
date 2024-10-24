@@ -6,7 +6,7 @@ import { ChipProps, createTheme } from "@mui/material";
 import { RootState } from "@/redux/store/store";
 import { useSelector } from "react-redux";
 import * as baseColors from "tailwindcss/colors";
-import { fontSize } from "@mui/system";
+import { fontSize, minWidth, width } from "@mui/system";
 
 export const customTheme = {
   aliasColors: {
@@ -1540,9 +1540,8 @@ const Theme = ({ mode = "light" }: { mode: "light" | "dark" }) => {
         defaultProps: {
             variant: "filled",
             color: 'secondary',
-            size: "large",
-            shape: "pill"
-        }as ChipProps,
+            size: "large"
+        },
         styleOverrides: {
             root: {
                 backgroundColor: customTheme.mappedColors.action.primary.main(mode),
@@ -1557,7 +1556,7 @@ const Theme = ({ mode = "light" }: { mode: "light" | "dark" }) => {
                 padding: "4px 5px",
                 justifyContent: "space-between",
                 marginRight: ".7rem",
-                gap: "3px",
+                gap: "8px",
                 '&:hover': {
                     backgroundColor: customTheme.mappedColors.action.primary.hover(mode),
                     color: customTheme.mappedColors.action.primary.textHover(mode),
@@ -1590,45 +1589,38 @@ const Theme = ({ mode = "light" }: { mode: "light" | "dark" }) => {
                 },
 
                 "& .MuiBadge-badge": {
-                    display: "none"
-                },
-
-                "& .MuiBadge-root": {
-                    backgroundColor: "white",
-                    width: "20px",
+                    top : "50%",
+                    left : "50%",
+                    transform: "translate(-50%, -50%)",
+                    minWidth: "20px",
                     height: "20px",
                     padding: "2px 6px",
-                    borderRadius: "4px",
+                    borderRadius: "4px !important",
                     display : "flex",
                     alignItems : "center",
                     justifyContent : "center",
-                    fontSize : "14px"
+                    fontSize : "14px",
+                },
+
+                "& .MuiChip-deletable" : {
+                    "& .label" : {
+                        color : "green ! important"
+                    }
                 }
             },
         },
         variants: [
             // for the the chip shapes
             {
-                props: { shape: "pill" }as ChipProps,
+                props: { shape: "pill" } as ChipProps,
                 style: {
                     borderRadius: "16px"
                 }
             },
             {
-                props: { shape: "rounded" } as ChipProps,
+                props: { shape: "rounded"} as ChipProps,
                 style: {
                     borderRadius: "4px"
-                }
-            },
-
-            // for the chip count styles
-
-            {
-                props: { variant: "filled", },
-                style: {
-                    "& .MuiBadge-root": {
-                        backgroundColor: "white"
-                    }
                 }
             },
 
@@ -1641,9 +1633,9 @@ const Theme = ({ mode = "light" }: { mode: "light" | "dark" }) => {
                     fontSize: '12px',
                     lineHeight: '1rem',
                     padding: '2px 6px',
-                    "& .MuiBadge-root": {
-                        width: "14px",
-                        height: "14px",
+                    "& .MuiBadge-badge": {
+                        width: "20px ! important",
+                        height: "14px ! important",
                         fontSize : "10px"
                     }
                 }
@@ -1656,9 +1648,9 @@ const Theme = ({ mode = "light" }: { mode: "light" | "dark" }) => {
                     fontSize: '14px',
                     lineHeight: '1.25rem',
                     padding: '2px 6px',
-                    "& .MuiBadge-root": {
-                        width: "16px",
-                        height: "16px",
+                    "& .MuiBadge-badge": {
+                        width: "20px ! important",
+                        height: "16px ! important",
                         fontSize : "12px"
                     }
                 }
@@ -1671,18 +1663,20 @@ const Theme = ({ mode = "light" }: { mode: "light" | "dark" }) => {
                     fontSize: "16px",
                     lineHeight: "24px",
                     padding: "4px 8px",
-                    "& .MuiBadge-root": {
-                        width: "20px",
-                        height: "20px",
+                    "& .MuiBadge-badge": {
+                        width: "24px ! important",
+                        height: "20px ! important",
                         fontSize : "14px"
                     }
                 }
             },
 
+            //  for the filed
+
             {
                 props : {variant : "filled" } ,
                 style : {
-                    backgroundColor: customTheme.mappedColors.action.primary.main(mode),
+                    backgroundColor: customTheme.mappedColors.action.primary.main(mode) ,
                     color: customTheme.mappedColors.action.primary.textMain(mode),
                     borderColor: customTheme.mappedColors.border.primary(mode),
 
@@ -1717,9 +1711,9 @@ const Theme = ({ mode = "light" }: { mode: "light" | "dark" }) => {
                         }
                     },
 
-                    "& .MuiBadge-root": {
-                        backgroundColor: "white",
-                        color: customTheme.mappedColors.action.primary.main(mode),
+                    "& .MuiBadge-badge": {
+                        backgroundColor: "white ! important",
+                        color: customTheme.mappedColors.action.primary.main(mode) + "! important",
                         '&:hover': {
                             color: customTheme.mappedColors.action.primary.hover(mode)
                         },
@@ -1771,9 +1765,9 @@ const Theme = ({ mode = "light" }: { mode: "light" | "dark" }) => {
                         }
                     },
 
-                    "& .MuiBadge-root": {
-                        backgroundColor: "white",
-                        color: customTheme.mappedColors.action.primary.main(mode),
+                    "& .MuiBadge-badge": {
+                        backgroundColor: "white ! important",
+                        color: customTheme.mappedColors.action.primary.main(mode) + "! important",
                         '&:hover': {
                             color: customTheme.mappedColors.action.primary.hover(mode)
                         },
@@ -1823,9 +1817,9 @@ const Theme = ({ mode = "light" }: { mode: "light" | "dark" }) => {
                         }
                     },
 
-                    "& .MuiBadge-root": {
+                    "& .MuiBadge-badge": {
                         backgroundColor: "white",
-                        color: customTheme.mappedColors.action.secondary.main(mode),
+                        color: customTheme.mappedColors.action.secondary.main(mode) + "! important",
                         '&:hover': {
                             color: customTheme.mappedColors.action.secondary.hover(mode)
                         },
@@ -1877,9 +1871,9 @@ const Theme = ({ mode = "light" }: { mode: "light" | "dark" }) => {
                         }
                     },
 
-                    "& .MuiBadge-root": {
-                        backgroundColor: "white",
-                        color: customTheme.mappedColors.action.info.main(mode),
+                    "& .MuiBadge-badge": {
+                        backgroundColor: "white ! important",
+                        color: customTheme.mappedColors.action.info.main(mode) + "! important",
                         '&:hover': {
                             color: customTheme.mappedColors.action.info.hover(mode)
                         },
@@ -1931,9 +1925,9 @@ const Theme = ({ mode = "light" }: { mode: "light" | "dark" }) => {
                         }
                     },
 
-                    "& .MuiBadge-root": {
-                        backgroundColor: "white",
-                        color: customTheme.mappedColors.action.success.main(mode),
+                    "& .MuiBadge-badge": {
+                        backgroundColor: "white ! important",
+                        color: customTheme.mappedColors.action.success.main(mode) + "! important",
                         '&:hover': {
                             color: customTheme.mappedColors.action.success.hover(mode)
                         },
@@ -1985,9 +1979,9 @@ const Theme = ({ mode = "light" }: { mode: "light" | "dark" }) => {
                         }
                     },
 
-                    "& .MuiBadge-root": {
-                        backgroundColor: "white",
-                        color: customTheme.mappedColors.action.error.main(mode),
+                    "& .MuiBadge-badge": {
+                        backgroundColor: "white ! important",
+                        color: customTheme.mappedColors.action.error.main(mode) + "! important",
                         '&:hover': {
                             color: customTheme.mappedColors.action.error.hover(mode)
                         },
@@ -2039,9 +2033,9 @@ const Theme = ({ mode = "light" }: { mode: "light" | "dark" }) => {
                         }
                     },
 
-                    "& .MuiBadge-root": {
-                        backgroundColor: "white",
-                        color: customTheme.mappedColors.action.warning.main(mode),
+                    "& .MuiBadge-badge": {
+                        backgroundColor: "white ! important",
+                        color: customTheme.mappedColors.action.warning.main(mode) + "! important",
                         '&:hover': {
                             color: customTheme.mappedColors.action.warning.hover(mode)
                         },
@@ -2096,9 +2090,9 @@ const Theme = ({ mode = "light" }: { mode: "light" | "dark" }) => {
                         }
                     },
 
-                    "& .MuiBadge-root": {
-                        backgroundColor: customTheme.mappedColors.action.primary.main(mode),
-                        color: customTheme.mappedColors.action.primary.textMain(mode),
+                    "& .MuiBadge-badge": {
+                        backgroundColor: customTheme.mappedColors.action.primary.main(mode) + "! important",
+                        color: customTheme.mappedColors.action.primary.textMain(mode) + "! important",
                         '&:hover': {
                             backgroundColor: customTheme.mappedColors.action.primary.main(mode),
                             color: customTheme.mappedColors.action.primary.textHover(mode)
@@ -2154,9 +2148,9 @@ const Theme = ({ mode = "light" }: { mode: "light" | "dark" }) => {
                         }
                     },
 
-                    "& .MuiBadge-root": {
-                        backgroundColor: customTheme.mappedColors.action.primary.main(mode),
-                        color: customTheme.mappedColors.action.primary.textMain(mode),
+                    "& .MuiBadge-badge": {
+                        backgroundColor: customTheme.mappedColors.action.primary.main(mode) + "! important",
+                        color: customTheme.mappedColors.action.primary.textMain(mode) + "! important",
                         '&:hover': {
                             backgroundColor: customTheme.mappedColors.action.primary.main(mode),
                             color: customTheme.mappedColors.action.primary.textHover(mode)
@@ -2213,9 +2207,9 @@ const Theme = ({ mode = "light" }: { mode: "light" | "dark" }) => {
                         }
                     },
 
-                    "& .MuiBadge-root": {
-                        backgroundColor: customTheme.mappedColors.action.secondary.main(mode),
-                        color: customTheme.mappedColors.action.secondary.textMain(mode),
+                    "& .MuiBadge-badge": {
+                        backgroundColor: customTheme.mappedColors.action.secondary.main(mode) + "! important",
+                        color: customTheme.mappedColors.action.secondary.textMain(mode) + "! important",
                         '&:hover': {
                             backgroundColor: customTheme.mappedColors.action.secondary.main(mode),
                             color: customTheme.mappedColors.action.secondary.textHover(mode)
@@ -2271,9 +2265,9 @@ const Theme = ({ mode = "light" }: { mode: "light" | "dark" }) => {
                         }
                     },
 
-                    "& .MuiBadge-root": {
-                        backgroundColor: customTheme.mappedColors.action.info.main(mode),
-                        color: customTheme.mappedColors.action.info.textMain(mode),
+                    "& .MuiBadge-badge": {
+                        backgroundColor: customTheme.mappedColors.action.info.main(mode) + "! important",
+                        color: customTheme.mappedColors.action.info.textMain(mode) + "! important",
                         '&:hover': {
                             backgroundColor: customTheme.mappedColors.action.info.main(mode),
                             color: customTheme.mappedColors.action.info.textHover(mode)
@@ -2329,9 +2323,9 @@ const Theme = ({ mode = "light" }: { mode: "light" | "dark" }) => {
                         }
                     },
 
-                    "& .MuiBadge-root": {
-                        backgroundColor: customTheme.mappedColors.action.success.main(mode),
-                        color: customTheme.mappedColors.action.success.textMain(mode),
+                    "& .MuiBadge-badge": {
+                        backgroundColor: customTheme.mappedColors.action.success.main(mode) + "! important",
+                        color: customTheme.mappedColors.action.success.textMain(mode) + "! important",
                         '&:hover': {
                             backgroundColor: customTheme.mappedColors.action.success.main(mode),
                             color: customTheme.mappedColors.action.success.textHover(mode)
@@ -2387,9 +2381,9 @@ const Theme = ({ mode = "light" }: { mode: "light" | "dark" }) => {
                         }
                     },
 
-                    "& .MuiBadge-root": {
-                        backgroundColor: customTheme.mappedColors.action.error.main(mode),
-                        color: customTheme.mappedColors.action.error.textMain(mode),
+                    "& .MuiBadge-badge": {
+                        backgroundColor: customTheme.mappedColors.action.error.main(mode) + "! important",
+                        color: customTheme.mappedColors.action.error.textMain(mode) + "! important",
                         '&:hover': {
                             backgroundColor: customTheme.mappedColors.action.error.main(mode),
                             color: customTheme.mappedColors.action.error.textHover(mode)
@@ -2444,9 +2438,9 @@ const Theme = ({ mode = "light" }: { mode: "light" | "dark" }) => {
                             color: customTheme.mappedColors.action.warning.hover(mode),
                         }
                     },
-                    "& .MuiBadge-root": {
-                        backgroundColor: customTheme.mappedColors.action.warning.main(mode),
-                        color: customTheme.mappedColors.action.warning.textMain(mode),
+                    "& .MuiBadge-badge": {
+                        backgroundColor: customTheme.mappedColors.action.warning.main(mode) + "! important",
+                        color: customTheme.mappedColors.action.warning.textMain(mode) + "! important",
                         '&:hover': {
                             backgroundColor: customTheme.mappedColors.action.warning.main(mode),
                             color: customTheme.mappedColors.action.warning.textHover(mode)
