@@ -7,7 +7,7 @@ import CustomBadge from '../Badge'
 interface props {
     shape?: "pill" | "rounded",
     onDelete?: () => void,
-    deleteIcon?: ReactElement,
+    endIcon?: ReactElement,
     color?: "primary" | "secondary" | "error" | "info" | "success" | "warning",
     size?: "large" | "medium" | "small",
     variant?: "filled" | "outlined",
@@ -22,7 +22,7 @@ interface props {
 export const CustomChip = ({
     shape = "pill",
     onDelete,
-    deleteIcon,
+    endIcon,
     color = "primary",
     size = "medium",
     variant = "outlined",
@@ -38,6 +38,7 @@ export const CustomChip = ({
         <Chip
             label={
                 <Stack direction={'row'} gap={'16px'} alignItems={'center'} justifyContent={"space-between"}>
+                     {startIcon}
                     {label}
                     {
                         count ? 
@@ -49,6 +50,7 @@ export const CustomChip = ({
                         </CustomBadge>
                         : null
                     }
+                     {endIcon}
                 </Stack>
             }
             variant={variant}
@@ -56,8 +58,6 @@ export const CustomChip = ({
             size={size}
             sx={{ borderRadius: shape === "pill" ? "16px" : "4px", ...sx }}
             onDelete={onDelete}
-            deleteIcon={deleteIcon}
-            icon={startIcon}
             disabled={disabled}
         />
     )

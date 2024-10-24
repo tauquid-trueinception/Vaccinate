@@ -1579,7 +1579,7 @@ const Theme = ({ mode = "light" }: { mode: "light" | "dark" }) => {
                     color: customTheme.mappedColors.action.primary.textMain(mode),
                 },
 
-                "& .MuiChip-deleteIcon": {
+                "& .MuiChip-endIcon": {
                     width: "18px",
                     height: "20px",
                     color: customTheme.mappedColors.action.primary.textMain(mode),
@@ -1702,7 +1702,7 @@ const Theme = ({ mode = "light" }: { mode: "light" | "dark" }) => {
                         color: customTheme.mappedColors.action.primary.textMain(mode),
                     },
 
-                    "& .MuiChip-deleteIcon": {
+                    "& .MuiChip-endIcon": {
                         width: "18px",
                         height: "20px",
                         color: customTheme.mappedColors.action.primary.textMain(mode),
@@ -1756,7 +1756,7 @@ const Theme = ({ mode = "light" }: { mode: "light" | "dark" }) => {
                         color: customTheme.mappedColors.action.primary.textMain(mode),
                     },
 
-                    "& .MuiChip-deleteIcon": {
+                    "& .MuiChip-endIcon": {
                         width: "18px",
                         height: "20px",
                         color: customTheme.mappedColors.action.primary.textMain(mode),
@@ -1808,7 +1808,7 @@ const Theme = ({ mode = "light" }: { mode: "light" | "dark" }) => {
                         color: customTheme.mappedColors.action.secondary.textMain(mode),
                     },
 
-                    "& .MuiChip-deleteIcon": {
+                    "& .MuiChip-endIcon": {
                         width: "18px",
                         height: "20px",
                         color: customTheme.mappedColors.action.secondary.textMain(mode),
@@ -1862,7 +1862,7 @@ const Theme = ({ mode = "light" }: { mode: "light" | "dark" }) => {
                         color: customTheme.mappedColors.action.info.textMain(mode),
                     },
 
-                    "& .MuiChip-deleteIcon": {
+                    "& .MuiChip-endIcon": {
                         width: "18px",
                         height: "20px",
                         color: customTheme.mappedColors.action.info.textMain(mode),
@@ -1916,7 +1916,7 @@ const Theme = ({ mode = "light" }: { mode: "light" | "dark" }) => {
                         color: customTheme.mappedColors.action.success.textMain(mode),
                     },
 
-                    "& .MuiChip-deleteIcon": {
+                    "& .MuiChip-endIcon": {
                         width: "18px",
                         height: "20px",
                         color: customTheme.mappedColors.action.success.textMain(mode),
@@ -1970,7 +1970,7 @@ const Theme = ({ mode = "light" }: { mode: "light" | "dark" }) => {
                         color: customTheme.mappedColors.action.error.textMain(mode),
                     },
 
-                    "& .MuiChip-deleteIcon": {
+                    "& .MuiChip-endIcon": {
                         width: "18px",
                         height: "20px",
                         color: customTheme.mappedColors.action.error.textMain(mode),
@@ -2024,7 +2024,7 @@ const Theme = ({ mode = "light" }: { mode: "light" | "dark" }) => {
                         color: customTheme.mappedColors.action.warning.textMain(mode),
                     },
 
-                    "& .MuiChip-deleteIcon": {
+                    "& .MuiChip-endIcon": {
                         width: "18px",
                         height: "20px",
                         color: customTheme.mappedColors.action.warning.textMain(mode),
@@ -2081,7 +2081,7 @@ const Theme = ({ mode = "light" }: { mode: "light" | "dark" }) => {
                         color: customTheme.mappedColors.action.primary.main(mode),
                     },
 
-                    "& .MuiChip-deleteIcon": {
+                    "& .MuiChip-endIcon": {
                         width: "18px",
                         height: "20px",
                         color: customTheme.mappedColors.action.primary.main(mode),
@@ -2139,7 +2139,7 @@ const Theme = ({ mode = "light" }: { mode: "light" | "dark" }) => {
                         color: customTheme.mappedColors.action.primary.main(mode),
                     },
 
-                    "& .MuiChip-deleteIcon": {
+                    "& .MuiChip-endIcon": {
                         width: "18px",
                         height: "20px",
                         color: customTheme.mappedColors.action.primary.main(mode),
@@ -2198,7 +2198,7 @@ const Theme = ({ mode = "light" }: { mode: "light" | "dark" }) => {
                         color: customTheme.mappedColors.action.secondary.main(mode),
                     },
 
-                    "& .MuiChip-deleteIcon": {
+                    "& .MuiChip-endIcon": {
                         width: "18px",
                         height: "20px",
                         color: customTheme.mappedColors.action.secondary.main(mode),
@@ -2256,7 +2256,7 @@ const Theme = ({ mode = "light" }: { mode: "light" | "dark" }) => {
                         color: customTheme.mappedColors.action.info.main(mode),
                     },
 
-                    "& .MuiChip-deleteIcon": {
+                    "& .MuiChip-endIcon": {
                         width: "18px",
                         height: "20px",
                         color: customTheme.mappedColors.action.info.main(mode),
@@ -2314,7 +2314,7 @@ const Theme = ({ mode = "light" }: { mode: "light" | "dark" }) => {
                         color: customTheme.mappedColors.action.success.main(mode),
                     },
 
-                    "& .MuiChip-deleteIcon": {
+                    "& .MuiChip-endIcon": {
                         width: "18px",
                         height: "20px",
                         color: customTheme.mappedColors.action.success.main(mode),
@@ -2372,7 +2372,7 @@ const Theme = ({ mode = "light" }: { mode: "light" | "dark" }) => {
                         color: customTheme.mappedColors.action.error.main(mode),
                     },
 
-                    "& .MuiChip-deleteIcon": {
+                    "& .MuiChip-endIcon": {
                         width: "18px",
                         height: "20px",
                         color: customTheme.mappedColors.action.error.main(mode),
@@ -2430,7 +2430,7 @@ const Theme = ({ mode = "light" }: { mode: "light" | "dark" }) => {
                         color: customTheme.mappedColors.action.warning.main(mode),
                     },
 
-                    "& .MuiChip-deleteIcon": {
+                    "& .MuiChip-endIcon": {
                         width: "18px",
                         height: "20px",
                         color: customTheme.mappedColors.action.warning.main(mode),

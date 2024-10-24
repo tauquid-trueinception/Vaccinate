@@ -18,12 +18,11 @@ const App: React.FC = () => {
         label="label"
         shape="rounded"
         variant="outlined"
-        color="warning"
+        color="info"
         size="small"
         count={4}
         startIcon={<MailLock />}
-        onDelete={() => {}}
-        deleteIcon={<Close />}
+        endIcon={<Close />}
         max={3}
       />
 
@@ -37,20 +36,18 @@ const App: React.FC = () => {
           count={2}
           max={1}
           startIcon={<MailLock />}
-          onDelete={() => {}}
-          deleteIcon={<Close />}
+          endIcon={<Close />}
         />
         <CustomChip
           label="label"
           shape="pill"
           variant="filled"
-          color="warning"
+          color="success"
           size="medium"
           count={2}
           max={1}
           startIcon={<MailLock />}
-          onDelete={() => {}}
-          deleteIcon={<Close />}
+          endIcon={<Close />}
         />
       </Stack>
     </Box>
